@@ -1,3 +1,3 @@
 # backend
 
-Todos os projetos estão separados por pastas
+Todos os projetos estaram separados por pastas
