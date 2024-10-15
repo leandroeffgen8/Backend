@@ -1,0 +1,42 @@
+1) Criar um npm init -y
+
+2) Importar os pacotes necessários:
+
+    * Dependencias
+    - bcryptjs
+    - cors
+    - dotenv
+    - express
+    - express-validator
+    - jsonewbtoken
+    - mongoose
+    - multer
+    *DevDependecias
+    -nodemon
+
+3) Criar pastas:
+
+    - config
+    - controlllers
+    - middleware
+    - models
+    - routes
+    - uploads
+
+4) Crie um arquivo app.js 
+
+5) Crie no package.json uma linha para monitor as atualizações de arquivos
+
+    "scripts":{
+        "server": "nodemon ./app.js"
+    }
+
+6) Para usar importa no lugar de require. Inclua no arquivo package.json uma linha:
+
+    "type": "module"
+
+7) Faça o server rodar na porta especifica.
+
+8) Crie o banco de dados e a conexão
+
+9) Após criar a primeira rota, verifique se já é necessário criar os middleware authGuard e handleValidation.

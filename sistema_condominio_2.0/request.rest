@@ -1,0 +1,304 @@
+###
+### CRIANDO UM USUÁRIO
+POST http://localhost:5000/api/users/create
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "email": "teste@gmail.com",
+    "password": "teste123",
+    "confirmpassword": "teste123",
+    "role": "morador",
+    "apto": "1333"
+}
+
+###
+### LOGIN
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "teste@teste.com.br",
+    "password":"teste123"
+    
+}
+
+###
+### RETORNA O PERFIL DO USUÁRIO
+GET http://localhost:5000/api/users/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+###
+### RETORNA USUÁRIO POR ID
+GET http://localhost:5000/api/users/66ec1c38cbbdc88fe2af97fa
+Content-Type: application/json
+
+###
+### RETORNA TODOS OS USUÁRIOS
+GET http://localhost:5000/api/users/all
+Content-Type: application/json
+
+###
+### ATUALIZA OS DADOS DOS USUÁRIOS
+PUT http://localhost:5000/api/users/
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="name"
+
+Leandro A. Effgen
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+leandroeffgen8@gmail.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+teste123
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="phone"
+
+11999897968
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profileImage"; filename="amarelo1.png"
+Content-Type: image/png
+
+< C:\Users\leand\OneDrive\Imagens\amarelo1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+### DELETA USUÁRIO
+DELETE http://localhost:5000/api/users/66ec3630dabaab1b925f19a8
+
+##############################################################################################################################################################################
+
+
+###
+### REGISTRA UMA RESERVA
+POST http://localhost:5000/api/reservations/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "area": "Quadra de Futebol",
+    "date": "2024/12/20",
+    "startTime": "15:00",
+    "endTime": "20:00"
+}
+
+###
+### RETORNA TODAS AS RESERVAS
+GET http://localhost:5000/api/reservations/all
+
+
+###
+### RETORNA A RESERVA DO MORADOR AUTENTICADO
+GET http://localhost:5000/api/reservations/my-reserve
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+###
+### ATUALIZA A RESERVA DO MORADOR
+PUT http://localhost:5000/api/reservations/66ec72271f239e0f5914f836
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "status": "cancelado"
+}
+
+###
+### DELETA RESERVA
+DELETE http://localhost:5000/api/reservations/66ed67468f0266e898e3cdf3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+##############################################################################################################################################################################
+
+
+###
+### ADICIONANDO CARRO
+POST http://localhost:5000/api/car/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "placa": "ART-4344",
+    "modelo": "PRISMA",
+    "cor": "PRETO",
+    "vagaEstacionamento": "T1C01"
+}
+
+###
+### LISTA TODOS OS CARROS
+GET http://localhost:5000/api/car/all
+
+###
+### LISTA CARROS DO USUÁRIO
+GET http://localhost:5000/api/car/my-cars
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+###
+### ATUALIZA CARRO
+PUT http://localhost:5000/api/car/6705999ee1a2fb1cea528d36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "placa": "MUN-0980",
+    "modelo": "CAMARO",
+    "cor": "AMARELO",
+    "vagaEstacionamento": "T110"
+}
+
+
+###
+### DELETA CARRO
+DELETE http://localhost:5000/api/car/66ed83fa1474f4276b012a03
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+##############################################################################################################################################################################
+
+
+###
+### CRIA UMA NOTIFICAÇÃO
+POST http://localhost:5000/api/notification/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "title": "Olá mundo!",
+    "message": "teste"
+}
+
+
+###
+### RETORNA TODAS AS NOTIFICAÇÕES
+GET http://localhost:5000/api/notification/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+###
+### ATUALIZA NOTIFICAÇÃO
+PUT http://localhost:5000/api/notification/66ede29483649999153f4262
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "title": "Piscina fechada",
+    "message": "Piscina em manutenção."
+}
+
+###
+### DELETA NOTIFICAÇÃO
+DELETE http://localhost:5000/api/notification/670049b7e6113c7291cd9159
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+##############################################################################################################################################################################
+
+
+###
+### CRIANDO UM INCIDENTE
+POST http://localhost:5000/api/incident/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "title": "Teste",
+    "description": "Teste"
+}
+
+
+###
+### RETORNA TODOS OS INCIDENTES
+GET http://localhost:5000/api/incident/all
+
+
+###
+### RETORNA TODOS POR MORADOR
+GET http://localhost:5000/api/incident/my-incidents
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+
+###
+### ATUALIZA O STATUS DO INCIDENTE
+PUT http://localhost:5000/api/incident/66edf23028fb633f9253903a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "status": "resolvido"
+}
+
+
+###
+### DELETE INCIDENTE
+DELETE http://localhost:5000/api/incident/66edf23028fb633f9253903a
+
+
+##############################################################################################################################################################################
+
+###
+### CRIA UMA DATA PARA A ASSEMBLEIA
+POST http://localhost:5000/api/assembly/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "local": "Salão de Festas",
+    "dayOf": "2024/12/20",
+    "startTime": "20:00",
+    "subject": "Gastos"
+}
+
+
+###
+### RETORNA TODAS AS DATAS DA ASSEMBLEIA
+GET http://localhost:5000/api/assembly/all
+
+
+##############################################################################################################################################################################
+
+
+###
+### CRIANDO UMA ENQUETE
+POST http://localhost:5000/api/poll/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "title": "Você gostaria que tivesse a votação para as vagas de estacionamento?",
+    "options": ["Sim", "Não"],
+    "expiresAt": "2024/09/24"
+}
+
+###
+### RETORNA ENQUENTES
+GET http://localhost:5000/api/poll/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjJiZGU2Zjg4MWRmOTE1MzlhODEzMyIsImlhdCI6MTcyODU2NjY2MCwiZXhwIjoxNzI5MTcxNDYwfQ.G8tHXHQl3jBFy3Ridj2QRD_7wOVfnINXk68Z2C_6yGk
+
+###
+### VOTE EM UMA ENQUENTE
+POST http://localhost:5000/api/poll/66f1742f8eaa6dc543dc7b6c/vote
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWMxYzM4Y2JiZGM4OGZlMmFmOTdmYSIsImlhdCI6MTcyNzkxMzIzMCwiZXhwIjoxNzI4NTE4MDMwfQ.uVJhLRi0GmXUmBz1CqifwrqKFA9TJpcVFxGDEQ5UROg
+
+{
+    "optionID": "66f1742f8eaa6dc543dc7b6d"
+}
+
+###
+### RESULTADO DA ENQUENTE
+GET http://localhost:5000/api/poll/66f1742f8eaa6dc543dc7b6c
