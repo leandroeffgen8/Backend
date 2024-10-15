@@ -1,6 +1,6 @@
 # Backend
 
-Todos os projetos estaram separados por pastas
+Todos os projetos estarão separados por pastas
 
 # Desenvolvido em:
 
